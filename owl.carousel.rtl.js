@@ -37,6 +37,7 @@
       var timeout = setInterval(function() {
         if ($this.data('owlCarousel') !== 'undefined') {
           clearInterval(timeout);
+          afterInitBindings();
           jump2BugFig();
           if (config.rtlJump === true) {
             $this.data('owlCarousel').jumpTo(9999);
@@ -46,6 +47,38 @@
           }
         }
       }, 300);
+    };
+    // after Action
+    if (config.afterAction) {
+      var afterAfterActionClone = config.afterAction;
+    }
+    config.afterAction = function() {
+      rtlEnumeration();
+      if (typeof (afterAfterActionClone) === "function") {
+        afterAfterActionClone();
+      }
+    };
+
+    // RTL METHODS
+    var afterInitBindings = function() {      
+      var owl = $this.data('owl-carousel');      
+      owl.jumpToRtl = function(num) {        
+        var numRtl = owl.itemsAmount - num - 1;
+        owl.jumpTo(numRtl);
+      };     
+      owl.goToRtl = function(num) {        
+        var numRtl = owl.itemsAmount - num - 1;
+        owl.goTo(numRtl);
+      };
+    };
+    // RTL ENUMERATION
+    var rtlEnumeration = function() {
+      var owl = $this.data('owl-carousel');
+      if (!owl) {
+        return false;
+      }
+      owl.currentItemRtl = owl.maximumItem - owl.currentItem;
+      owl.currentPositionRtl = owl.maximumItem - owl.currentItem + 1;
     };
 
     var jump2BugFig = function() {
