@@ -43,9 +43,11 @@
           if (config.rtlJump === true) {
             $this.data('owlCarousel').jumpTo(9999);
           }
+          rtlEnumeration();
           if (typeof (afterInitClone) === "function") {
             afterInitClone();
           }
+          rtlEnumeration();
         }
       }, 300);
     };
