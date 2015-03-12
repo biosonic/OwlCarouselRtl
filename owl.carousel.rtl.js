@@ -37,6 +37,7 @@
       var timeout = setInterval(function() {
         if ($this.data('owlCarousel') !== 'undefined') {
           clearInterval(timeout);
+          rtlEnumeration();
           afterInitBindings();
           jump2BugFig();
           if (config.rtlJump === true) {
