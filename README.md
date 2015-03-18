@@ -1,5 +1,4 @@
 # Owl Carousel Rtl
->v.0.9.0
 
 Wrapper for right to left owl carousel slider orientation.
 
