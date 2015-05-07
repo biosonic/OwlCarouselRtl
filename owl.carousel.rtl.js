@@ -87,7 +87,7 @@
     var jump2BugFig = function() {
       var ua = window.navigator.userAgent;
       var broken = false;
-      broken = broken || (ua.indexOf('GT-I9300') > -1) && (ua.indexOf('GT-I9300') > -1);
+      broken = broken || (ua.indexOf('GT-I9300') > -1) && (ua.indexOf('GT-I9300') > -1) && (ua.indexOf('Chrome') === -1);
       if (broken) {
         $('.owl-controls .owl-buttons', $this).off("touchend.owlControls");
       }
