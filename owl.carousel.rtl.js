@@ -16,8 +16,11 @@
     config = config || {};
     config.rtlJump = (config.rtlJump === false) ? false : true;
     var $this = $(this);
-    // rtl class
+    // rtl css
     $this.addClass("owl-rtl");
+    if ($('.owl-rtl-css').length < 1) {
+      $($('head')[0]).append("<style class='owl-rtl-css'>.owl-wrapper-outer{direction:ltr;opacity:0.001;} .owl-wrapper{direction:rtl;}</style>");
+    }
     // rtl reorder & numeration
     var itemNo = 0;
     $this.children().each(function(i, o) {
@@ -44,10 +47,9 @@
           rtlEnumeration();
           if (typeof (afterInitClone) === "function") {
             afterInitClone();
-          }          
-          $this.find('.owl-wrapper-outer').css({direction:'ltr'});
-          $this.find('.owl-wrapper').css({direction:'rtl'});
+          }
           rtlEnumeration();
+          $this.find('.owl-wrapper-outer').css({opacity:1});
         }
       }, 300);
     };
