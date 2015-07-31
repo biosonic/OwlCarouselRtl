@@ -35,9 +35,9 @@
       var afterInitClone = config.afterInit;
     }
     config.afterInit = function() {
-      var timeout = setInterval(function() {
+      var interval = setInterval(function() {
         if ($this.data('owlCarousel') !== 'undefined') {
-          clearInterval(timeout);
+          clearInterval(interval);
           rtlEnumeration();
           afterInitBindings();
           jump2BugFig();
@@ -49,7 +49,7 @@
             afterInitClone();
           }
           rtlEnumeration();
-          $this.find('.owl-wrapper-outer').css({opacity:1});
+          $this.find('.owl-wrapper-outer').animate({opacity:1},800);
         }
       }, 300);
     };
@@ -90,6 +90,10 @@
       var ua = window.navigator.userAgent;
       var broken = false;
       broken = broken || (ua.indexOf('GT-I9300') > -1) && (ua.indexOf('GT-I9300') > -1) && (ua.indexOf('Chrome') === -1);
+      broken = broken || (ua.indexOf('SM-T110') > -1) && (ua.indexOf('Android 4.2.2') > -1) && (ua.indexOf('Chrome') === -1); // Galxy Tab 3
+      
+      alert(broken);
+      
       if (broken) {
         $('.owl-controls .owl-buttons', $this).off("touchend.owlControls");
       }
