@@ -1,0 +1,21 @@
+{
+  "name": "owl-carousel-rtl",
+  "version": "0.9.7",
+  "homepage": "https://github.com/biosonic/OwlCarouselRtl",
+  "authors": [
+    "Aleksandar Veljkovic <aleksandar.veljkovic@diwanee.com>"
+  ],
+  "description": "Wrapper for right to left owl carousel slider orientation.",
+  "main": "owl.carousel.rtl.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "owlcarousel": "~1.3.2"
+  }
+}
